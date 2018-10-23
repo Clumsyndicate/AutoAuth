@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		72173152217874B000AF4F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173151217874B000AF4F9F /* AppDelegate.swift */; };
 		72173154217874B000AF4F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173153217874B000AF4F9F /* ViewController.swift */; };
-		72173156217874B100AF4F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72173155217874B100AF4F9F /* Assets.xcassets */; };
 		72173159217874B100AF4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72173157217874B100AF4F9F /* Main.storyboard */; };
 		72173165217874B100AF4F9F /* NewAutoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173164217874B100AF4F9F /* NewAutoUITests.swift */; };
+		72173170217874B800AF4F9F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217316F217874B800AF4F9F /* Reachability.swift */; };
+		72D8108B217DC43400490289 /* auth in Resources */ = {isa = PBXBuildFile; fileRef = 72D8108A217DC43400490289 /* auth */; };
+		72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8108C217DE64100490289 /* SettingsViewController.swift */; };
+		72D8108E217DF95A00490289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72173155217874B100AF4F9F /* Assets.xcassets */; };
+		72D81090217DFD4600490289 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8108F217DFD4600490289 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 		72173160217874B100AF4F9F /* NewAutoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewAutoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72173164217874B100AF4F9F /* NewAutoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAutoUITests.swift; sourceTree = "<group>"; };
 		72173166217874B100AF4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7217316F217874B800AF4F9F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		72D8108A217DC43400490289 /* auth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = auth; sourceTree = "<group>"; };
+		72D8108C217DE64100490289 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		72D8108F217DFD4600490289 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,13 @@
 			isa = PBXGroup;
 			children = (
 				72173151217874B000AF4F9F /* AppDelegate.swift */,
+				7217316F217874B800AF4F9F /* Reachability.swift */,
+				72D8108A217DC43400490289 /* auth */,
 				72173153217874B000AF4F9F /* ViewController.swift */,
 				72173155217874B100AF4F9F /* Assets.xcassets */,
 				72173157217874B100AF4F9F /* Main.storyboard */,
+				72D8108F217DFD4600490289 /* UserInfo.swift */,
+				72D8108C217DE64100490289 /* SettingsViewController.swift */,
 				7217315A217874B100AF4F9F /* Info.plist */,
 				7217315B217874B100AF4F9F /* NewAuto.entitlements */,
 			);
@@ -145,6 +157,20 @@
 				TargetAttributes = {
 					7217314D217874B000AF4F9F = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					7217315F217874B100AF4F9F = {
 						CreatedOnToolsVersion = 10.0;
@@ -176,7 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72173156217874B100AF4F9F /* Assets.xcassets in Resources */,
+				72D8108B217DC43400490289 /* auth in Resources */,
+				72D8108E217DF95A00490289 /* Assets.xcassets in Resources */,
 				72173159217874B100AF4F9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +224,9 @@
 			files = (
 				72173154217874B000AF4F9F /* ViewController.swift in Sources */,
 				72173152217874B000AF4F9F /* AppDelegate.swift in Sources */,
+				72173170217874B800AF4F9F /* Reachability.swift in Sources */,
+				72D81090217DFD4600490289 /* UserInfo.swift in Sources */,
+				72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +388,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = JZ.NewAuto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -377,6 +408,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = JZ.NewAuto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
