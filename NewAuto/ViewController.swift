@@ -31,11 +31,15 @@ class ViewController: NSViewController, SettingsDelegate {
             debugPrint("Network reachable through WiFi")
             substatusTextField.isHidden = true
             tryConnect()
-            if timer == nil {
-                timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(tryConnect), userInfo: nil, repeats: true)
-            }
+            addTimer()
         case .cellular:
             debugPrint("Network reachable through Cellular Data")
+        }
+    }
+    
+    fileprivate func addTimer() {
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(tryConnect), userInfo: nil, repeats: true)
         }
     }
     
@@ -78,9 +82,13 @@ class ViewController: NSViewController, SettingsDelegate {
             connectBtn.title = "Connecting"
             statusTextField.stringValue = "Connecting"
             tryConnect()
-        } else {
+        } else if sender.title == "Connected" {
             connectBtn.title = "Connect"
             statusTextField.stringValue = "Disconnected"
+        } else {
+            connectBtn.title = "Connecting"
+            statusTextField.stringValue = "Connecting"
+            tryConnect()
         }
     }
     
@@ -107,8 +115,8 @@ class ViewController: NSViewController, SettingsDelegate {
     fileprivate func connectionStatus(connected: Bool) {
         if connected {
             connectivityIcon.image = NSImage(named: "on")
-            connectBtn.stringValue = "Connected"
-            connectBtn.isEnabled = false
+            connectBtn.title = "Retry Connect"
+            // connectBtn.isEnabled = false
             statusTextField.stringValue = "Connected"
             substatusTextField.stringValue = "Enjoy censored YKPao Internet!"
             substatusTextField.isHidden = false
@@ -147,6 +155,8 @@ class ViewController: NSViewController, SettingsDelegate {
             }
             
             print(output!)
+            
+            self.addTimer()
         }
     }
     override func viewDidLoad() {
@@ -175,7 +185,7 @@ class ViewController: NSViewController, SettingsDelegate {
         } else {
         }
         
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(tryConnect), userInfo: nil, repeats: true)
+        addTimer()
     }
     
     
