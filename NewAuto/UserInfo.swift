@@ -13,9 +13,10 @@ struct UserInfo: Codable  {
     var name: String
     var psword: String
     
+    var autoStart: Bool
+    
 }
 
-import Foundation
 
 public class Storage {
     
@@ -76,7 +77,7 @@ public class Storage {
     ///   - directory: directory where struct data is stored
     ///   - type: struct type (i.e. Message.self)
     /// - Returns: decoded struct model(s) of data
-    static func retrieve<T: Decodable>(_ fileName: String, from directory: Directory, as type: T.Type) -> T {
+    static func retrieve<T: Decodable>(_ fileName: String, from directory: Directory, as type: T.Type) -> T? {
         let url = getURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
         
         if !FileManager.default.fileExists(atPath: url.path) {
@@ -89,7 +90,9 @@ public class Storage {
                 let model = try decoder.decode(type, from: data)
                 return model
             } catch {
-                fatalError(error.localizedDescription)
+                // fatalError(error.localizedDescription)
+                self.remove(fileName, from: directory)
+                return nil
             }
         } else {
             fatalError("No data at \(url.path)!")

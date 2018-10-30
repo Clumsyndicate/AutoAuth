@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SettingsViewController: NSViewController {
+class SettingsViewController: NSViewController, NSTextFieldDelegate {
 
     
     var delegate: SettingsDelegate!
@@ -17,10 +17,21 @@ class SettingsViewController: NSViewController {
     
     var num: String!
     var pw: String!
+    var auto: Bool!
+    
+    
     
     @IBAction func saveAction(_ sender: NSButton) {
         delegate.username = numField.stringValue
         delegate.password = pwField.stringValue
+        switch AutoStartButton.state {
+        case .on: delegate.autoStart = true
+        case .off: delegate.autoStart = false
+        default:
+            break
+        }
+        delegate.save()
+        pwField.delegate = self
         dismiss(self)
     }
     
@@ -28,11 +39,21 @@ class SettingsViewController: NSViewController {
         dismiss(self)
     }
     
+    @IBOutlet weak var AutoStartButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         numField.stringValue = num
         pwField.stringValue = pw
+        switch auto {
+        case true:
+            AutoStartButton.state = .on
+        case false:
+            AutoStartButton.state = .off
+        default:
+            break
+        }
     }
     
 }

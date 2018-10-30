@@ -11,9 +11,14 @@ import Cocoa
 protocol SettingsDelegate {
     var username: String { get set }
     var password: String { get set }
+    var autoStart: Bool { get set }
+    func save()
 }
 
 class ViewController: NSViewController, SettingsDelegate {
+    
+    var appDelegate: AppDelegate!
+    var autoStart: Bool = false
     
     let reachability = Reachability()!
 
@@ -36,6 +41,7 @@ class ViewController: NSViewController, SettingsDelegate {
             debugPrint("Network reachable through Cellular Data")
         }
     }
+    
     
     fileprivate func addTimer() {
         if timer == nil {
@@ -92,25 +98,18 @@ class ViewController: NSViewController, SettingsDelegate {
         }
     }
     
-    var username: String = "" {
-        didSet {
-            user.name = username
-            save()
-        }
-    }
-    var password: String = "" {
-        didSet {
-            user.psword = password
-            save()
-        }
-    }
+    var username: String = ""
+    var password: String = "" 
     
-    fileprivate func save() {
+    func save() {
+        user.name = username
+        user.psword = password
+        user.autoStart = autoStart
         Storage.store(user, to: .documents, as: "info.json")
         tryConnect()
     }
     
-    var user = UserInfo(name: "", psword: "")
+    var user = UserInfo(name: "", psword: "", autoStart: false)
     
     fileprivate func connectionStatus(connected: Bool) {
         if connected {
@@ -150,8 +149,12 @@ class ViewController: NSViewController, SettingsDelegate {
             if let string = output, string.range(of: "It works!") != nil {
                 self.connectionStatus(connected: true)
             } else {
+                self.statusTextField.stringValue = "Attempting Connection"
+                self.connectivityIcon.image = NSImage(named: "off")
+                
                 self.substatusTextField.stringValue = "Having trouble connecting. VPN on?"
                 self.substatusTextField.isHidden = false
+                self.connectBtn.title = "Connecting"
             }
             
             print(output!)
@@ -161,6 +164,8 @@ class ViewController: NSViewController, SettingsDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        appDelegate = NSApplication.shared.delegate as! AppDelegate
 
         // Do any additional setup after loading the view.
         
@@ -176,19 +181,49 @@ class ViewController: NSViewController, SettingsDelegate {
             print("Not reachable")
         }
         
+        switch reachability.connection {
+        case .none:
+            debugPrint("Network became unreachable")
+            substatusTextField.isHidden = false
+            connectivityIcon.image = NSImage(named: "off")
+            statusTextField.stringValue = "Not connected to Wifi"
+            substatusTextField.stringValue = "Please Connect to Wifi"
+            timer?.invalidate()
+        case .wifi:
+            debugPrint("Network reachable through WiFi")
+            substatusTextField.isHidden = true
+            tryConnect()
+            addTimer()
+        case .cellular:
+            debugPrint("Network reachable through Cellular Data")
+        }
+        
         startMonitoring()
         
         if Storage.fileExists("info.json", in: .documents) {
-            user =  Storage.retrieve("info.json", from: .documents, as: UserInfo.self)
-            username = user.name
-            password = user.psword
-        } else {
+            if let user =  Storage.retrieve("info.json", from: .documents, as: UserInfo.self) {
+                username = user.name
+                password = user.psword
+                autoStart = user.autoStart
+            }
         }
         
         addTimer()
+        
+        if username == "" && password == "" {
+            firstTimeAlert()
+        }
+        
     }
     
-    
+    fileprivate func firstTimeAlert() {
+        let alert = NSAlert()
+        
+        alert.messageText = "Please add your student # and password in the Settings. It will be stored and don't need to be entered again."
+        alert.addButton(withTitle: "Got it")
+        alert.runModal()
+        
+    }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "settings" {
@@ -196,6 +231,7 @@ class ViewController: NSViewController, SettingsDelegate {
                 vc.delegate = self
                 vc.num = username
                 vc.pw = password
+                vc.auto = autoStart
             }
         }
     }

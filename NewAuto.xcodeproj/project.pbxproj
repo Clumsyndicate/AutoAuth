@@ -12,10 +12,16 @@
 		72173159217874B100AF4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72173157217874B100AF4F9F /* Main.storyboard */; };
 		72173165217874B100AF4F9F /* NewAutoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173164217874B100AF4F9F /* NewAutoUITests.swift */; };
 		72173170217874B800AF4F9F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217316F217874B800AF4F9F /* Reachability.swift */; };
+		725C08F7218162C600BD4014 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C08F6218162C600BD4014 /* Cocoa.framework */; };
+		7267B0AD2180A8D50006464F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7267B0AC2180A8D50006464F /* ServiceManagement.framework */; };
 		72D8108B217DC43400490289 /* auth in Resources */ = {isa = PBXBuildFile; fileRef = 72D8108A217DC43400490289 /* auth */; };
 		72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8108C217DE64100490289 /* SettingsViewController.swift */; };
 		72D8108E217DF95A00490289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72173155217874B100AF4F9F /* Assets.xcassets */; };
 		72D81090217DFD4600490289 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8108F217DFD4600490289 /* UserInfo.swift */; };
+		72E0CCA221819527001591F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E0CCA121819527001591F6 /* AppDelegate.swift */; };
+		72E0CCA421819528001591F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72E0CCA321819528001591F6 /* Assets.xcassets */; };
+		72E0CCA721819528001591F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E0CCA521819528001591F6 /* MainMenu.xib */; };
+		72E0CCAE218196B2001591F6 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72E0CC9F21819527001591F6 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +33,29 @@
 			remoteInfo = NewAuto;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		725C08F82181640A00BD4014 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/Loginitems;
+			dstSubfolderSpec = 1;
+			files = (
+				72E0CCAE218196B2001591F6 /* Launcher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7267B0A921805DD70006464F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7217314E217874B000AF4F9F /* NewAuto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewAuto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,9 +69,17 @@
 		72173164217874B100AF4F9F /* NewAutoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAutoUITests.swift; sourceTree = "<group>"; };
 		72173166217874B100AF4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7217316F217874B800AF4F9F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		725C08F6218162C600BD4014 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7267B0AC2180A8D50006464F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		72D8108A217DC43400490289 /* auth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = auth; sourceTree = "<group>"; };
 		72D8108C217DE64100490289 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		72D8108F217DFD4600490289 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		72E0CC9F21819527001591F6 /* Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Launcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72E0CCA121819527001591F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		72E0CCA321819528001591F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72E0CCA621819528001591F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		72E0CCA821819528001591F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72E0CCA921819528001591F6 /* Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Launcher.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725C08F7218162C600BD4014 /* Cocoa.framework in Frameworks */,
+				7267B0AD2180A8D50006464F /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,15 +99,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72E0CC9C21819527001591F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03C22D580E71F19380D9F34C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				725C08F6218162C600BD4014 /* Cocoa.framework */,
+				7267B0AC2180A8D50006464F /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		72173145217874B000AF4F9F = {
 			isa = PBXGroup;
 			children = (
 				72173150217874B000AF4F9F /* NewAuto */,
 				72173163217874B100AF4F9F /* NewAutoUITests */,
+				72E0CCA021819527001591F6 /* Launcher */,
 				7217314F217874B000AF4F9F /* Products */,
+				03C22D580E71F19380D9F34C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +134,7 @@
 			children = (
 				7217314E217874B000AF4F9F /* NewAuto.app */,
 				72173160217874B100AF4F9F /* NewAutoUITests.xctest */,
+				72E0CC9F21819527001591F6 /* Launcher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +165,18 @@
 			path = NewAutoUITests;
 			sourceTree = "<group>";
 		};
+		72E0CCA021819527001591F6 /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				72E0CCA121819527001591F6 /* AppDelegate.swift */,
+				72E0CCA321819528001591F6 /* Assets.xcassets */,
+				72E0CCA521819528001591F6 /* MainMenu.xib */,
+				72E0CCA821819528001591F6 /* Info.plist */,
+				72E0CCA921819528001591F6 /* Launcher.entitlements */,
+			);
+			path = Launcher;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,6 +187,8 @@
 				7217314A217874B000AF4F9F /* Sources */,
 				7217314B217874B000AF4F9F /* Frameworks */,
 				7217314C217874B000AF4F9F /* Resources */,
+				7267B0A921805DD70006464F /* Embed App Extensions */,
+				725C08F82181640A00BD4014 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -144,6 +216,23 @@
 			productName = NewAutoUITests;
 			productReference = 72173160217874B100AF4F9F /* NewAutoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		72E0CC9E21819527001591F6 /* Launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72E0CCAA21819528001591F6 /* Build configuration list for PBXNativeTarget "Launcher" */;
+			buildPhases = (
+				72E0CC9B21819527001591F6 /* Sources */,
+				72E0CC9C21819527001591F6 /* Frameworks */,
+				72E0CC9D21819527001591F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Launcher;
+			productName = Launcher;
+			productReference = 72E0CC9F21819527001591F6 /* Launcher.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -176,6 +265,9 @@
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = 7217314D217874B000AF4F9F;
 					};
+					72E0CC9E21819527001591F6 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 				};
 			};
 			buildConfigurationList = 72173149217874B000AF4F9F /* Build configuration list for PBXProject "NewAuto" */;
@@ -193,6 +285,7 @@
 			targets = (
 				7217314D217874B000AF4F9F /* NewAuto */,
 				7217315F217874B100AF4F9F /* NewAutoUITests */,
+				72E0CC9E21819527001591F6 /* Launcher */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +305,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72E0CC9D21819527001591F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72E0CCA421819528001591F6 /* Assets.xcassets in Resources */,
+				72E0CCA721819528001591F6 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +340,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72E0CC9B21819527001591F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72E0CCA221819527001591F6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -255,6 +365,14 @@
 				72173158217874B100AF4F9F /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		72E0CCA521819528001591F6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72E0CCA621819528001591F6 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -380,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NewAuto/NewAuto.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 486B9F2DGV;
@@ -391,6 +510,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = JZ.NewAuto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -400,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NewAuto/NewAuto.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 486B9F2DGV;
@@ -411,6 +532,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = JZ.NewAuto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -455,6 +577,48 @@
 			};
 			name = Release;
 		};
+		72E0CCAB21819528001591F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Launcher/Launcher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 486B9F2DGV;
+				INFOPLIST_FILE = Launcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = JZ.Launcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		72E0CCAC21819528001591F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Launcher/Launcher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 486B9F2DGV;
+				INFOPLIST_FILE = Launcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = JZ.Launcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -481,6 +645,15 @@
 			buildConfigurations = (
 				7217316D217874B100AF4F9F /* Debug */,
 				7217316E217874B100AF4F9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72E0CCAA21819528001591F6 /* Build configuration list for PBXNativeTarget "Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72E0CCAB21819528001591F6 /* Debug */,
+				72E0CCAC21819528001591F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

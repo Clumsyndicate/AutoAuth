@@ -761,6 +761,14 @@ Gw
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                             </secureTextField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-xv-IQ3">
+                                <rect key="frame" x="18" y="18" width="131" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Launch at Startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kDj-jw-IxJ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="kJu-EQ-tGE" firstAttribute="leading" secondItem="kh5-Lr-xc4" secondAttribute="trailing" constant="33" id="6Fk-6B-wLE"/>
@@ -783,6 +791,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AutoStartButton" destination="IR4-xv-IQ3" id="e2n-h7-xqj"/>
                         <outlet property="numField" destination="kJu-EQ-tGE" id="K2D-XW-h29"/>
                         <outlet property="pwField" destination="Qzc-rF-D5v" id="Vh9-Zb-mFJ"/>
                     </connections>
