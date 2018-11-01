@@ -12,6 +12,8 @@ protocol SettingsDelegate {
     var username: String { get set }
     var password: String { get set }
     var autoStart: Bool { get set }
+    var statusBar: Bool { get set }
+    var statusMenu: Bool { get set }
     func save()
 }
 
@@ -19,6 +21,8 @@ class ViewController: NSViewController, SettingsDelegate {
     
     var appDelegate: AppDelegate!
     var autoStart: Bool = false
+    var statusBar: Bool = true
+    var statusMenu: Bool = true
     
     let reachability = Reachability()!
 
@@ -105,11 +109,13 @@ class ViewController: NSViewController, SettingsDelegate {
         user.name = username
         user.psword = password
         user.autoStart = autoStart
+        user.showStatus = statusBar
+        user.showStatusMenu = statusMenu
         Storage.store(user, to: .documents, as: "info.json")
         tryConnect()
     }
     
-    var user = UserInfo(name: "", psword: "", autoStart: false)
+    var user = UserInfo(name: "", psword: "", autoStart: false, showStatus: true, showStatusMenu: true)
     
     fileprivate func connectionStatus(connected: Bool) {
         if connected {
@@ -232,6 +238,8 @@ class ViewController: NSViewController, SettingsDelegate {
                 vc.num = username
                 vc.pw = password
                 vc.auto = autoStart
+                vc.status = statusBar
+                vc.menuBool = statusMenu
             }
         }
     }

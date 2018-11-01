@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import Sparkle
 
 extension Notification.Name {
     static let killLauncher = Notification.Name("killLauncher")
@@ -16,7 +17,17 @@ extension Notification.Name {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    
+    @objc func printQuote(_ sender: Any?) {
+        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
+        let quoteAuthor = "Mark Twain"
+        
+        print("\(quoteText) — \(quoteAuthor)")
+        let windows = NSApplication.shared.windows
+        windows.last?.makeKeyAndOrderFront(self)
+        NSApp.activate(ignoringOtherApps: true)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -26,6 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
         
         var autoStart: Bool!
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named:NSImage.Name("wireless-signal"))
+            button.action = #selector(printQuote(_:))
+        }
         
         if Storage.fileExists("info.json", in: .documents) {
             if let user =  Storage.retrieve("info.json", from: .documents, as: UserInfo.self) {
@@ -47,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DistributedNotificationCenter.default().post(name: .killLauncher,
                                                          object: Bundle.main.bundleIdentifier!)
         }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -57,7 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if flag {
             return false
         } else {
-            sender.windows.first?.makeKeyAndOrderFront(self)
+            let windows = sender.windows
+            sender.windows.last?.makeKeyAndOrderFront(self)
             return true
         }
     }

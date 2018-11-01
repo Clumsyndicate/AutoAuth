@@ -18,8 +18,11 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
     var num: String!
     var pw: String!
     var auto: Bool!
+    var status: Bool!
+    var menuBool: Bool!
     
     
+    @IBOutlet weak var saveBtn: NSButton!
     
     @IBAction func saveAction(_ sender: NSButton) {
         delegate.username = numField.stringValue
@@ -30,8 +33,20 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
         default:
             break
         }
+        switch showStatusButton.state {
+        case .on: delegate.statusBar = true
+        case .off: delegate.statusBar = false
+        default:
+            break
+        }
+        switch showMenuButton.state {
+        case .on: delegate.statusMenu = true
+        case .off: delegate.statusMenu = false
+        default:
+            break
+        }
         delegate.save()
-        pwField.delegate = self
+        
         dismiss(self)
     }
     
@@ -40,6 +55,17 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBOutlet weak var AutoStartButton: NSButton!
+    @IBOutlet weak var showStatusButton: NSButton!
+    @IBOutlet weak var showMenuButton: NSButton!
+    
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        return true
+    }
+    
+    
+    func controlTextDidEndEditing(_ obj: Notification) {
+        saveAction(saveBtn)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +80,24 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
         default:
             break
         }
+        switch status {
+        case true:
+            showStatusButton.state = .on
+        case false:
+            showStatusButton.state = .off
+        default:
+            break
+        }
+        switch menuBool {
+        case true:
+            showMenuButton.state = .on
+        case false:
+            showMenuButton.state = .off
+        default:
+            break
+        }
+        // numField.delegate = self
+        pwField.delegate = self
     }
     
 }

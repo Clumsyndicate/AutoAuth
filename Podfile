@@ -7,6 +7,9 @@ target 'NewAuto' do
 
   # Pods for NewAuto
 
+pod 'Sparkle'
+
+
 
   target 'NewAutoUITests' do
     inherit! :search_paths

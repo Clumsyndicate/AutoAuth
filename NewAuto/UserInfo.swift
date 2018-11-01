@@ -14,7 +14,8 @@ struct UserInfo: Codable  {
     var psword: String
     
     var autoStart: Bool
-    
+    var showStatus: Bool
+    var showStatusMenu: Bool
 }
 
 
