@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -788,13 +788,6 @@ Gw
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wbh-ig-FeB">
-                                <rect key="frame" x="205" y="59" width="135" height="18"/>
-                                <buttonCell key="cell" type="check" title="Show Status menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="81N-B8-9Va">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="kJu-EQ-tGE" firstAttribute="leading" secondItem="kh5-Lr-xc4" secondAttribute="trailing" constant="33" id="6Fk-6B-wLE"/>
@@ -805,9 +798,7 @@ Gw
                             <constraint firstItem="Qzc-rF-D5v" firstAttribute="top" secondItem="kJu-EQ-tGE" secondAttribute="bottom" constant="16" id="LXb-Kq-juq"/>
                             <constraint firstItem="IR4-xv-IQ3" firstAttribute="top" secondItem="U7u-ol-DKz" secondAttribute="bottom" constant="17" id="Ria-Si-CPV"/>
                             <constraint firstItem="kJu-EQ-tGE" firstAttribute="top" secondItem="JyA-rg-oy1" secondAttribute="bottom" constant="32" id="TUe-0D-UkD"/>
-                            <constraint firstItem="wbh-ig-FeB" firstAttribute="leading" secondItem="U7u-ol-DKz" secondAttribute="trailing" constant="50" id="WkW-6U-QXT"/>
                             <constraint firstAttribute="bottom" secondItem="IR4-xv-IQ3" secondAttribute="bottom" constant="30" id="Xk4-4u-jPg"/>
-                            <constraint firstItem="wbh-ig-FeB" firstAttribute="firstBaseline" secondItem="U7u-ol-DKz" secondAttribute="firstBaseline" id="Z5T-5Y-NcE"/>
                             <constraint firstAttribute="bottom" secondItem="Xvm-69-sJN" secondAttribute="bottom" constant="20" id="bdd-xs-y10"/>
                             <constraint firstItem="U7u-ol-DKz" firstAttribute="leading" secondItem="oqs-6Z-uGf" secondAttribute="leading" constant="20" id="dW2-sI-0oH"/>
                             <constraint firstItem="kh5-Lr-xc4" firstAttribute="top" secondItem="oqs-6Z-uGf" secondAttribute="top" constant="79" id="dq1-Qj-IeR"/>
@@ -827,7 +818,6 @@ Gw
                         <outlet property="numField" destination="kJu-EQ-tGE" id="K2D-XW-h29"/>
                         <outlet property="pwField" destination="Qzc-rF-D5v" id="Vh9-Zb-mFJ"/>
                         <outlet property="saveBtn" destination="rCf-PJ-jPa" id="1XY-aI-DQk"/>
-                        <outlet property="showMenuButton" destination="wbh-ig-FeB" id="BpW-gT-wKF"/>
                         <outlet property="showStatusButton" destination="U7u-ol-DKz" id="gQ3-cc-mMq"/>
                     </connections>
                 </viewController>

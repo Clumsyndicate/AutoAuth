@@ -13,7 +13,6 @@ protocol SettingsDelegate {
     var password: String { get set }
     var autoStart: Bool { get set }
     var statusBar: Bool { get set }
-    var statusMenu: Bool { get set }
     func save()
 }
 
@@ -35,6 +34,7 @@ class ViewController: NSViewController, SettingsDelegate {
             connectivityIcon.image = NSImage(named: "off")
             statusTextField.stringValue = "Not connected to Wifi"
             substatusTextField.stringValue = "Please Connect to Wifi"
+            connectionStatus(connected: false)
             timer?.invalidate()
         case .wifi:
             debugPrint("Network reachable through WiFi")
@@ -110,28 +110,51 @@ class ViewController: NSViewController, SettingsDelegate {
         user.psword = password
         user.autoStart = autoStart
         user.showStatus = statusBar
-        user.showStatusMenu = statusMenu
+        
         Storage.store(user, to: .documents, as: "info.json")
         tryConnect()
     }
+    func updateStatus() {
+        if user.showStatus {
+            
+        }
+    }
     
-    var user = UserInfo(name: "", psword: "", autoStart: false, showStatus: true, showStatusMenu: true)
+    var user = UserInfo(name: "", psword: "", autoStart: false, showStatus: true)
     
-    fileprivate func connectionStatus(connected: Bool) {
+    func connectionStatus(connected: Bool) {
         if connected {
+            appDelegate.statusItem?.button?.image = NSImage(named:NSImage.Name("Connected"))
+
             connectivityIcon.image = NSImage(named: "on")
             connectBtn.title = "Retry Connect"
             // connectBtn.isEnabled = false
             statusTextField.stringValue = "Connected"
             substatusTextField.stringValue = "Enjoy censored YKPao Internet!"
             substatusTextField.isHidden = false
+        } else {
+            appDelegate.statusItem?.button?.image = NSImage(named: NSImage.Name("Disconnected"))
+            self.statusTextField.stringValue = "Attempting Connection"
+            self.connectivityIcon.image = NSImage(named: "off")
+            
+            self.substatusTextField.stringValue = "Having trouble connecting. VPN on?"
+            self.substatusTextField.isHidden = false
+            self.connectBtn.title = "Connecting"
         }
     }
     
     var timer: Timer?
     
-    @objc fileprivate func tryConnect() {
+    func updateStatusBar(connecting: Int) {
+        let menu = appDelegate.statusItem?.menu
+        menu?.item(at: menu!.indexOfItem(withTag: 0))?.title = (connecting == 0) ? "Connected" : ((connecting == 1) ? "Connecting" : "Disconnected")
+    }
+    
+    @objc func tryConnect() {
         DispatchQueue.main.async {
+            
+            self.updateStatusBar(connecting: 1)
+            
             let process = Process()
             // process.launchPath = "/usr/bin/python"
             print(Bundle.main.resourcePath!)
@@ -153,14 +176,11 @@ class ViewController: NSViewController, SettingsDelegate {
             let output = String(data: data, encoding: .utf8)
             
             if let string = output, string.range(of: "It works!") != nil {
+                self.updateStatusBar(connecting: 0)
                 self.connectionStatus(connected: true)
             } else {
-                self.statusTextField.stringValue = "Attempting Connection"
-                self.connectivityIcon.image = NSImage(named: "off")
-                
-                self.substatusTextField.stringValue = "Having trouble connecting. VPN on?"
-                self.substatusTextField.isHidden = false
-                self.connectBtn.title = "Connecting"
+                self.updateStatusBar(connecting: 2)
+                self.connectionStatus(connected: false)
             }
             
             print(output!)
@@ -211,6 +231,7 @@ class ViewController: NSViewController, SettingsDelegate {
                 username = user.name
                 password = user.psword
                 autoStart = user.autoStart
+                statusBar = user.showStatus
             }
         }
         
@@ -239,7 +260,6 @@ class ViewController: NSViewController, SettingsDelegate {
                 vc.pw = password
                 vc.auto = autoStart
                 vc.status = statusBar
-                vc.menuBool = statusMenu
             }
         }
     }

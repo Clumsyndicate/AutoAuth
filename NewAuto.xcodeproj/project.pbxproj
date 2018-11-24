@@ -10,9 +10,7 @@
 		271FC0DAF9D9774020632EF4 /* Pods_NewAuto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BE9B8AF0ADD9863D94402D /* Pods_NewAuto.framework */; };
 		72173152217874B000AF4F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173151217874B000AF4F9F /* AppDelegate.swift */; };
 		72173154217874B000AF4F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173153217874B000AF4F9F /* ViewController.swift */; };
-		72173159217874B100AF4F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72173157217874B100AF4F9F /* Main.storyboard */; };
 		72173165217874B100AF4F9F /* NewAutoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173164217874B100AF4F9F /* NewAutoUITests.swift */; };
-		72173170217874B800AF4F9F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217316F217874B800AF4F9F /* Reachability.swift */; };
 		725C08F7218162C600BD4014 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C08F6218162C600BD4014 /* Cocoa.framework */; };
 		7267B0AD2180A8D50006464F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7267B0AC2180A8D50006464F /* ServiceManagement.framework */; };
 		72D8108B217DC43400490289 /* auth in Resources */ = {isa = PBXBuildFile; fileRef = 72D8108A217DC43400490289 /* auth */; };
@@ -23,6 +21,7 @@
 		72E0CCA421819528001591F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72E0CCA321819528001591F6 /* Assets.xcassets */; };
 		72E0CCA721819528001591F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E0CCA521819528001591F6 /* MainMenu.xib */; };
 		72E0CCAE218196B2001591F6 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72E0CC9F21819527001591F6 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72E7707C219AC31F004F9CFF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E7707B219AC31F004F9CFF /* Reachability.swift */; };
 		A5289B58535273CD6588D88A /* Pods_NewAutoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180CE90E6D700CE66D395528 /* Pods_NewAutoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,6 @@
 		72173160217874B100AF4F9F /* NewAutoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewAutoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72173164217874B100AF4F9F /* NewAutoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAutoUITests.swift; sourceTree = "<group>"; };
 		72173166217874B100AF4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7217316F217874B800AF4F9F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		725C08F6218162C600BD4014 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7267B0AC2180A8D50006464F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		72D8108A217DC43400490289 /* auth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = auth; sourceTree = "<group>"; };
@@ -85,6 +83,7 @@
 		72E0CCA621819528001591F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		72E0CCA821819528001591F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72E0CCA921819528001591F6 /* Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Launcher.entitlements; sourceTree = "<group>"; };
+		72E7707B219AC31F004F9CFF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		D5BE9B8AF0ADD9863D94402D /* Pods_NewAuto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewAuto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D714B806C30B078C59C351E4 /* Pods-NewAutoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAutoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewAutoUITests/Pods-NewAutoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E0EFC8EEB2C6008CA184324F /* Pods-NewAuto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAuto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewAuto/Pods-NewAuto.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,8 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				72173151217874B000AF4F9F /* AppDelegate.swift */,
-				7217316F217874B800AF4F9F /* Reachability.swift */,
-				72D8108A217DC43400490289 /* auth */,
 				72173153217874B000AF4F9F /* ViewController.swift */,
 				72173155217874B100AF4F9F /* Assets.xcassets */,
 				72173157217874B100AF4F9F /* Main.storyboard */,
@@ -176,6 +173,8 @@
 				72D8108C217DE64100490289 /* SettingsViewController.swift */,
 				7217315A217874B100AF4F9F /* Info.plist */,
 				7217315B217874B100AF4F9F /* NewAuto.entitlements */,
+				72E7707B219AC31F004F9CFF /* Reachability.swift */,
+				72D8108A217DC43400490289 /* auth */,
 			);
 			path = NewAuto;
 			sourceTree = "<group>";
@@ -324,7 +323,6 @@
 			files = (
 				72D8108B217DC43400490289 /* auth in Resources */,
 				72D8108E217DF95A00490289 /* Assets.xcassets in Resources */,
-				72173159217874B100AF4F9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,8 +410,8 @@
 			files = (
 				72173154217874B000AF4F9F /* ViewController.swift in Sources */,
 				72173152217874B000AF4F9F /* AppDelegate.swift in Sources */,
-				72173170217874B800AF4F9F /* Reachability.swift in Sources */,
 				72D81090217DFD4600490289 /* UserInfo.swift in Sources */,
+				72E7707C219AC31F004F9CFF /* Reachability.swift in Sources */,
 				72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,7 +19,6 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
     var pw: String!
     var auto: Bool!
     var status: Bool!
-    var menuBool: Bool!
     
     
     @IBOutlet weak var saveBtn: NSButton!
@@ -39,12 +38,7 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
         default:
             break
         }
-        switch showMenuButton.state {
-        case .on: delegate.statusMenu = true
-        case .off: delegate.statusMenu = false
-        default:
-            break
-        }
+        
         delegate.save()
         
         dismiss(self)
@@ -56,7 +50,6 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
     
     @IBOutlet weak var AutoStartButton: NSButton!
     @IBOutlet weak var showStatusButton: NSButton!
-    @IBOutlet weak var showMenuButton: NSButton!
     
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
         return true
@@ -88,14 +81,7 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate {
         default:
             break
         }
-        switch menuBool {
-        case true:
-            showMenuButton.state = .on
-        case false:
-            showMenuButton.state = .off
-        default:
-            break
-        }
+        
         // numField.delegate = self
         pwField.delegate = self
     }
