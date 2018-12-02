@@ -152,7 +152,7 @@ class ViewController: NSViewController, SettingsDelegate {
     
     @objc func tryConnect() {
         DispatchQueue.main.async {
-            
+            /*
             self.updateStatusBar(connecting: 1)
             
             let process = Process()
@@ -184,7 +184,9 @@ class ViewController: NSViewController, SettingsDelegate {
             }
             
             print(output!)
+            */
             
+            AutoAuth().connect(username: self.username, password: self.password)
             self.addTimer()
         }
     }

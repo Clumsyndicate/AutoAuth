@@ -8,7 +8,7 @@ target 'NewAuto' do
   # Pods for NewAuto
 
 pod 'Sparkle'
-
+pod 'Alamofire'
 
 
   target 'NewAutoUITests' do

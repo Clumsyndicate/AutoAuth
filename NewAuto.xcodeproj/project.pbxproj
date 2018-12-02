@@ -13,6 +13,7 @@
 		72173165217874B100AF4F9F /* NewAutoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72173164217874B100AF4F9F /* NewAutoUITests.swift */; };
 		725C08F7218162C600BD4014 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C08F6218162C600BD4014 /* Cocoa.framework */; };
 		7267B0AD2180A8D50006464F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7267B0AC2180A8D50006464F /* ServiceManagement.framework */; };
+		72B728E421AA471F008B9871 /* AutoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B728E321AA471F008B9871 /* AutoAuth.swift */; };
 		72D8108B217DC43400490289 /* auth in Resources */ = {isa = PBXBuildFile; fileRef = 72D8108A217DC43400490289 /* auth */; };
 		72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8108C217DE64100490289 /* SettingsViewController.swift */; };
 		72D8108E217DF95A00490289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72173155217874B100AF4F9F /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		72173166217874B100AF4F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725C08F6218162C600BD4014 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7267B0AC2180A8D50006464F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		72B728E321AA471F008B9871 /* AutoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAuth.swift; sourceTree = "<group>"; };
 		72D8108A217DC43400490289 /* auth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = auth; sourceTree = "<group>"; };
 		72D8108C217DE64100490289 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		72D8108F217DFD4600490289 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				72173151217874B000AF4F9F /* AppDelegate.swift */,
 				72173153217874B000AF4F9F /* ViewController.swift */,
+				72B728E321AA471F008B9871 /* AutoAuth.swift */,
 				72173155217874B100AF4F9F /* Assets.xcassets */,
 				72173157217874B100AF4F9F /* Main.storyboard */,
 				72D8108F217DFD4600490289 /* UserInfo.swift */,
@@ -388,11 +391,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewAuto/Pods-NewAuto-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
 			);
@@ -410,6 +415,7 @@
 			files = (
 				72173154217874B000AF4F9F /* ViewController.swift in Sources */,
 				72173152217874B000AF4F9F /* AppDelegate.swift in Sources */,
+				72B728E421AA471F008B9871 /* AutoAuth.swift in Sources */,
 				72D81090217DFD4600490289 /* UserInfo.swift in Sources */,
 				72E7707C219AC31F004F9CFF /* Reachability.swift in Sources */,
 				72D8108D217DE64100490289 /* SettingsViewController.swift in Sources */,
